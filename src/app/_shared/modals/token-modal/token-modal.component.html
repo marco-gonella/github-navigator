@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Autenticazione</h1>
+<div mat-dialog-content>
+    <p class="description">
+        Per visualizzare questo repository <strong>privato</strong>
+        accedi al tuo account Github e utilizza il seguente link per generare un token d'accesso
+        <br>
+        <a href="https://github.com/settings/tokens" target="_blank">Genera token</a>
+
+    </p>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Token autorizzativo</mat-label>
+        <input matInput placeholder="Inserisci token" [(ngModel)]="token">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-end">
+    <button mat-stroked-button class="mr-2" (click)="onNoClick()">Annulla</button>
+    <button mat-flat-button color="primary" [disabled]="!token" [mat-dialog-close]="token">Continua</button>
+</div>

@@ -1,0 +1,16 @@
+<div class="mb-2">
+    <span>Commit <strong>{{commit.sha}}</strong></span> 
+</div>
+<div class="mb-3">
+    <span>Messaggio - {{commit?.commit?.message}}</span>
+</div>
+<div class="mb-2">
+    <span>Autore <strong>{{commit?.commit?.author?.name}}</strong></span>
+</div>
+
+<span>Files</span>
+<ul class="files">
+    <li class="file" *ngFor="let file of commit.files">
+        {{file.filename}}
+    </li>
+</ul>

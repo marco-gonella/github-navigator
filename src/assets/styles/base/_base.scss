@@ -1,0 +1,33 @@
+html {
+    font-size: $base-font-size;
+    font-family: "Roboto";
+
+    @include media-breakpoint-down(lg) {
+        font-size: $base-font-size-down-lg;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1440px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid transparent;
+  transition: background-color 5000s ease-in-out 0s;
+}

@@ -1,0 +1,32 @@
+<div class="search-repository">
+    <div class="search-repository-image"></div>
+    <div class="search-repository-form-container">
+
+        <fa-icon class="logo mb-5 mt-3" [icon]="['fab', 'github']"></fa-icon>
+        <h5 class="mt-0">Github navigator</h5>
+        <form [formGroup]="searchForm" autocomplete="off" (ngSubmit)="searchRepository()">
+            <div class="row mb-4">
+                <mat-radio-group formControlName="type">
+                    <mat-radio-button class="mr-3" value="public">Pubblico</mat-radio-button>
+                    <mat-radio-button value="private">Privato</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Inserisci username" formControlName="username">
+                </mat-form-field>
+                <span class="slash-separator">/</span>
+                <mat-form-field appearance="outline">
+                    <mat-label>Repository</mat-label>
+                    <input matInput placeholder="Inserisci nome repository" formControlName="repository">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <button type="submit" mat-flat-button color="accent" [disabled]="searchForm.invalid" class="w-100">
+                    Cerca
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

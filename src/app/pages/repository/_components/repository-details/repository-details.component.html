@@ -1,0 +1,39 @@
+<!-- {{commits | json}} -->
+
+<div class="container-fluid">
+    <div class="col-sm-12">
+        <h4 class="mt-0 pt-5 repo-title">
+            <button mat-icon-button class="mr-4 back-btn" [routerLink]="[ '/repository' ]"
+                aria-label="Torna alla ricerca">
+                <fa-icon [icon]="['fas', 'arrow-left']"></fa-icon>
+            </button>
+            {{username}} / {{repository}}
+        </h4>
+    </div>
+
+    <div class="commits-container">
+        <div class="path"></div>
+        <div class="commit" *ngFor="let commit of commits" [class.active]="selectedCommit?.sha == commit?.sha">
+            <div class="col-sm-12 col-md-8 pl-5">
+                <div class="commit-preview" (click)="showDetail(commit)">
+                    <span>
+                        <strong class="mr-3">{{commit?.sha | slice : 0 : 7}}</strong>
+                    </span>
+                    <div class="mb-2 commit-message">
+                        <span>{{commit?.commit?.message}}</span>
+                    </div>
+                    <div>
+                        <span>Autore <strong>{{commit?.commit?.author?.name}}</strong></span> <br>
+                        <span>Data
+                            <strong>{{commit?.commit?.author?.date | date: 'dd/MM/yyyy HH:mm'}}</strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 pl-5 pl-md-4">
+                <app-commit-details *ngIf="selectedCommit?.sha == commit?.sha" [commit]="selectedCommit">
+                </app-commit-details>
+            </div>
+        </div>
+    </div>
+</div>

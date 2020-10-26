@@ -1,0 +1,6 @@
+.modal-md {
+    
+    @include media-breakpoint-up(md) {
+        max-width: 60rem !important;
+    }
+}

@@ -1,0 +1,44 @@
+@import "styles/vendors/bootstrap/breakpoints";
+
+:host {
+    position: relative;
+    display: block;
+    margin-top: 1rem;
+    border-radius: 2px;
+    background-color: white;
+    color: #555;
+    padding: 1.5rem 2rem;
+    font-size: 1.4rem;
+    word-break: break-all;
+    z-index: 1;
+
+    @include media-breakpoint-up(md) {
+        margin-top: 0;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+
+        &::before {
+            content: "";
+            width: 0px;
+            height: 0px;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 10px solid white;
+            position: absolute;
+            left: -10px;
+        }
+    }
+
+    .files {
+        margin-top: 0;
+        max-height: 25rem;
+        overflow: auto;
+        padding-left: 2rem;
+
+        .file {
+            margin: 1rem 0;
+        }
+    }
+}
